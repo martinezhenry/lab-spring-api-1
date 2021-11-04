@@ -6,8 +6,8 @@
 trigger:
 - main
 
-pool:
-  vmImage: ubuntu-latest
+pool: dev
+  #vmImage: ubuntu-latest
 
 steps:
 - task: Maven@3
