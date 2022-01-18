@@ -46,7 +46,7 @@ ENV ENV_JAR_FILE=$JAR_FILE \
     ELASTIC_APM_ENVIRONMENT=$ENVIRONMENT_APP
 
 # the apm jar is copied, this step will be changed to an apm model of the pod and not the jar
-COPY 'apm/elastic-apm-agent-1.19.0.jar' 'elastic-apm-agent-1.19.0.jar'
+#COPY 'apm/elastic-apm-agent-1.19.0.jar' 'elastic-apm-agent-1.19.0.jar'
 
 # the app.jar is copied from the builder layer
 COPY --from=builder /home/app/bin/app.jar ./
