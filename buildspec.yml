@@ -33,12 +33,14 @@ phases:
       - echo Build started on `date`
       - mvn package
       - docker build -t my-image:my-tag .
+      - docker tag my-image:my-tag martinezhenry/my-image:my-tag
     finally:
       - echo This always runs even if the install command fails
   post_build:
     commands:
       - echo Entered the post_build phase...
       - echo Build completed on `date`
+      - docker push martinezhenry/my-image:my-tag
 
 
 #reports:
