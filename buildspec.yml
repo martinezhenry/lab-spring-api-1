@@ -36,7 +36,7 @@ phases:
     commands:
       - echo Entered the post_build phase...
       - echo Build completed on `date`
-      - docker build my-image:my-tag .
+      - docker build -t my-image:my-tag .
 
 #reports:
     #arn:aws:codebuild:your-region:your-aws-account-id:report-group/report-group-name-1:
