@@ -11,11 +11,16 @@ phases:
     commands:
       - echo Entered the install phase...
       - yum update -y
-      - yum install -y maven
+      - wget https://dlcdn.apache.org/maven/maven-3/3.8.4/binaries/apache-maven-3.8.4-bin.tar.gz
+      - tar xzvf apache-maven-3.8.4-bin.tar.gz
+      - mv -r apache-maven-3.8.4 /opt/maven
+      - export PATH=/opt/apache-maven-3.8.4/bin:$PATH
     finally:
       - echo This always runs even if the update or install command fails
   pre_build:
     commands:
+      - echo cheking maven version
+      - mvn -v
       - echo Entered the pre_build phase...
       - docker login -u martinezhenry -p $ACCESS_TOKEN
     finally:
