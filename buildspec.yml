@@ -15,8 +15,7 @@ phases:
       - tar xzvf apache-maven-3.8.4-bin.tar.gz
       - mv apache-maven-3.8.4 /opt/maven
       - export PATH=/opt/apache-maven-3.8.4/bin:$PATH
-      - systemctl enable docker.service
-      - systemctl start docker.service
+      - service docker start
     finally:
       - echo This always runs even if the update or install command fails
   pre_build:
