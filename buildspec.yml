@@ -15,7 +15,9 @@ phases:
       - tar xzvf apache-maven-3.8.4-bin.tar.gz
       - mv apache-maven-3.8.4 /opt/maven
       - export PATH=/opt/apache-maven-3.8.4/bin:$PATH
-      - amazon-linux-extras install docker
+      - yum install docker -y
+      - systemctl enable docker.service
+      - systemctl start docker.service
     finally:
       - echo This always runs even if the update or install command fails
   pre_build:
