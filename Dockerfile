@@ -1,6 +1,6 @@
 # create the builder stage
 # The builder stage extracts the folders that are needed later. Each of the COPY commands relates to the layers that we listed earlier.
-FROM docker.novopayment.net/novo-docker-images-openjdk:11.0.10 as builder
+FROM openjdk:11.0.10 as builder
 
 # set working directory
 WORKDIR /home/app/bin
@@ -13,7 +13,7 @@ COPY ./target/*.jar app.jar
 RUN java -Djarmode=layertools -jar app.jar extract
 
 # the second working layer is created
-FROM docker.novopayment.net/novo-docker-images-openjdk:11.0.10
+FROM openjdk:11.0.10
 
 # we proceed to create the microservice layer and establish the working directory
 WORKDIR /home/app/bin
