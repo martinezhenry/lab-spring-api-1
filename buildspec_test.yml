@@ -26,8 +26,10 @@ phases:
     finally:
       - echo pre-builds commands executed
   build:
+    on-failure: ABORT
     commands:
       - echo Build started on `date`
+      - mvn test
       - echo running maven package
       - mvn package
       - echo building docker image
